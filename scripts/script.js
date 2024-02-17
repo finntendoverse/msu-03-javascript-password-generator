@@ -97,6 +97,7 @@ function writePassword() {
       let randomizeArray = Math.floor(Math.random() * charactersArray.length);
       let randomizedArray = charactersArray[randomizeArray];
       finalGeneratedPassword += randomizedArray;
+      finalGeneratedPassword = finalGeneratedPassword.slice(0, passwordLength);
     }
     passwordText.value = finalGeneratedPassword;
   }
