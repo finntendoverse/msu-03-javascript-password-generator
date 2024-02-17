@@ -1,32 +1,34 @@
-# 02 Advanced CSS Challenge: Professional Portfolio
+# 03 JavaScript Challenge: Password Generator
 
 ## Description
-AS an employer<br>
-I WANT to view a potential employee's deployed portfolio of work samples<br>
-SO THAT I can review samples of their work and assess whether they're a good candidate for an open position
+AS AN employee with access to sensitive data<br>
+I WANT to randomly generate a password that meets certain criteria<br>
+SO THAT I can create a strong password that provides greater security
 
 ## Installation
 N/A
 
 ## Usage
-GIVEN I need to sample a potential employee's previous work<br>
-WHEN I load their portfolio<br>
-THEN I am presented with the developer's name, a recent photo or avatar, and links to sections about them, their work, and how to contact them<br>
-WHEN I click one of the links in the navigation<br>
-THEN the UI scrolls to the corresponding section<br>
-WHEN I click on the link to the section about their work<br>
-THEN the UI scrolls to a section with titled images of the developer's applications<br>
-WHEN I am presented with the developer's first application<br>
-THEN that application's image should be larger in size than the others<br>
-WHEN I click on the images of the applications<br>
-THEN I am taken to that deployed application<br>
-WHEN I resize the page or view the site on various screens and devices<br>
-THEN I am presented with a responsive layout that adapts to my viewport
+GIVEN I need a new, secure password<br>
+WHEN I click the button to generate a password<br>
+THEN I am presented with a series of prompts for password criteria<br>
+WHEN prompted for password criteria<br>
+THEN I select which criteria to include in the password<br>
+WHEN prompted for the length of the password<br>
+THEN I choose a length of at least 8 characters and no more than 128 characters<br>
+WHEN asked for character types to include in the password<br>
+THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters<br>
+WHEN I answer each prompt<br>
+THEN my input should be validated and at least one character type should be selected<br>
+WHEN all prompts are answered<br>
+THEN a password is generated that matches the selected criteria<br>
+WHEN the password is generated<br>
+THEN the password is either displayed in an alert or written to the page
 
 ## Deployed Application
-[Deployed Application Link](https://finntendoverse.github.io/msu-02-advanced-css-portfolio/)
+[Deployed Application Link]()
 
-![Deployed Application](./assets/content/Deployed.png)
+![Deployed Application]()
 
 ## License
 MIT License
