@@ -1,18 +1,18 @@
 // Selects "generate" button
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Selects the text within the password box
-var passwordText = document.querySelector("#password");
+let passwordText = document.querySelector("#password");
 
 // Arrays of the different values that can be included in the password
-var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numberCharacters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-var specialCharacters = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+let lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let numberCharacters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+let specialCharacters = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // Write password to the #password input
 function writePassword() {
-  var passwordLength = prompt("How many characters would you like in your password?", "enter a number between 8 and 128");
+  let passwordLength = prompt("How many characters would you like in your password?", "enter a number between 8 and 128");
 
   if (!passwordLength) {                                                                // IF the user clicks "cancel"
     alert("A password will not be created");                                            // THEN they will be alerted that a password will not be created
@@ -29,10 +29,10 @@ function writePassword() {
   } else {}
 
   // The user will be asked if they want to include lowercase characters
-  var lowerCase = confirm("Do you want to include lowercase characters?");
+  let lowerCase = confirm("Do you want to include lowercase characters?");
 
   // This creates the string for the generatedPassword below
-  var generatedLowerCasePassword = "";
+  let generatedLowerCasePassword = "";
   
   if (lowerCase) {                                                                      // IF the user wants to include lowercase letters                                                
     for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
@@ -46,10 +46,10 @@ function writePassword() {
   }
 
   // The user will be asked if they want to include uppercase characters
-  var upperCase = confirm("Do you want to include uppercase characters?");
+  let upperCase = confirm("Do you want to include uppercase characters?");
   
   // This creates the string for the generatedPassword below
-  var generatedUpperCasePassword = "";
+  let generatedUpperCasePassword = "";
   
   if (upperCase) {                                                                      // IF the user wants to include uppercase letters    
     for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
@@ -63,10 +63,10 @@ function writePassword() {
   }
 
   // The user will be asked if they want to include number characters
-  var numbers = confirm("Do you want to include numbers?");
+  let numbers = confirm("Do you want to include numbers?");
 
   // This creates the string for the generatedPassword below
-  var generatedNumberPassword = "";
+  let generatedNumberPassword = "";
 
   if (numbers) {                                                                        // IF the user wants to include numbers
     for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
@@ -80,10 +80,10 @@ function writePassword() {
   }
 
   // The user will be asked if they want to include special characters
-  var special = confirm("Do you want to include special characters?");    
+  let special = confirm("Do you want to include special characters?");    
   
   // This creates the string for the generatedPassword below
-  var generatedSpecialCharacterPassword = "";
+  let generatedSpecialCharacterPassword = "";
 
   if (special) {                                                                        // IF the user wants to include special characters
     for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
@@ -97,13 +97,13 @@ function writePassword() {
   }
 
   // Creates an array of all the values selected by the user
-  var selectedCharacters = [generatedLowerCasePassword, generatedUpperCasePassword, generatedNumberPassword, generatedSpecialCharacterPassword];
+  let selectedCharacters = [generatedLowerCasePassword, generatedUpperCasePassword, generatedNumberPassword, generatedSpecialCharacterPassword];
 
   // Joins all the values into a new string
-  var combinedString = selectedCharacters.join("");
+  let combinedString = selectedCharacters.join("");
 
   // Splits all the values into individual characters
-  var charactersArray = combinedString.split("");
+  let charactersArray = combinedString.split("");
 
   // This creates the string for the FINAL generatedPassword below
   let finalGeneratedPassword = "";
