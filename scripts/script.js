@@ -14,91 +14,112 @@ var specialCharacters = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", 
 function writePassword() {
   var passwordLength = prompt("How many characters would you like in your password?", "enter a number between 8 and 128");
 
-  if (!passwordLength) {
-    alert("A password will not be created");
-    return;
+  if (!passwordLength) {                                                                // IF the user clicks "cancel"
+    alert("A password will not be created");                                            // THEN they will be alerted that a password will not be created
+    return;                                                                             // THEN the function will end
   }
 
-  if (isNaN(passwordLength)) {
-    alert("Please type a number!");
-    writePassword();
-  } else if (passwordLength < 8 || passwordLength > 128) {
-    alert("Your password must be between 8 and 138 characters");
-    writePassword();
+  if (isNaN(passwordLength)) {                                                          // IF the user types in something other than a number
+    alert("Please type a number!");                                                     // THEN they will be asked to enter a number
+    writePassword();                                                                    // THEN they will be prompted again
+  } else if (passwordLength < 8 || passwordLength > 128) {                              // IF the password is less than 8 characters or more than 128 characters
+    alert("Your password must be between 8 and 138 characters");                        // THEN they will be alerted that their password falls outside of the accepted range
+    writePassword();                                                                    // THEN they will be prompted again
   } else {}
 
+  // The user will be asked if they want to include lowercase characters
   var lowerCase = confirm("Do you want to include lowercase characters?");
-  var generatedLowerCasePassword = "";                                                             // This creates the string for the generatedPassword below
-  if (lowerCase) {
-    // Generate lowercase characters
-    for (i = 0; i < passwordLength; i++) {
-      let randomLowerCase = Math.floor(Math.random() * lowerCaseCharacters.length);
-      let lowerCaseCharacter = lowerCaseCharacters[randomLowerCase];
-      generatedLowerCasePassword += lowerCaseCharacter;
+
+  // This creates the string for the generatedPassword below
+  var generatedLowerCasePassword = "";
+  
+  if (lowerCase) {                                                                      // IF the user wants to include lowercase letters                                                
+    for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
+      //Randomly generate a number within the string & select its value                 //
+      let randomLowerCase = Math.floor(Math.random() * lowerCaseCharacters.length);     //
+      let lowerCaseCharacter = lowerCaseCharacters[randomLowerCase];                    // THEN a random lowercase character will be generated
+      generatedLowerCasePassword += lowerCaseCharacter;                                 // THEN the lowercase characters will be combined into a string
     }
-  } else {
-    // do not generate lowercase characters
-    generatedLowerCasePassword = null;
+  } else {                                                                              // IF the user does not want to include lowercase letters
+    generatedLowerCasePassword = null;                                                  // THEN random lowercase characters will not be generated
   }
 
+  // The user will be asked if they want to include uppercase characters
   var upperCase = confirm("Do you want to include uppercase characters?");
+  
+  // This creates the string for the generatedPassword below
   var generatedUpperCasePassword = "";
-  if (upperCase) {
-    // Generate uppercase characters
-    for (i = 0; i < passwordLength; i++) {
-      let randomUpperCase = Math.floor(Math.random() * upperCaseCharacters.length);
-      let upperCaseCharacter = upperCaseCharacters[randomUpperCase];
-      generatedUpperCasePassword += upperCaseCharacter;
+  
+  if (upperCase) {                                                                      // IF the user wants to include uppercase letters    
+    for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
+      //Randomly generate a number within the string & select its value                 //
+      let randomUpperCase = Math.floor(Math.random() * upperCaseCharacters.length);     //
+      let upperCaseCharacter = upperCaseCharacters[randomUpperCase];                    // THEN a random uppercase character will be generated
+      generatedUpperCasePassword += upperCaseCharacter;                                 // THEN the uppercase characters will be combined into a string
     }
-  } else {
-    // do not generate uppercase characters
-    generatedUpperCasePassword = null
+  } else {                                                                              // IF the user does not want to include uppercase letters
+    generatedUpperCasePassword = null                                                   // THEN random uppercase characters will not be generated
   }
 
+  // The user will be asked if they want to include number characters
   var numbers = confirm("Do you want to include numbers?");
+
+  // This creates the string for the generatedPassword below
   var generatedNumberPassword = "";
-  if (numbers) {
-    // Generate numbers
-    for (i = 0; i < passwordLength; i++) {
-      let randomNumber = Math.floor(Math.random() * numberCharacters.length);
-      let numberCharacter = numberCharacters[randomNumber];
-      generatedNumberPassword += numberCharacter;
+
+  if (numbers) {                                                                        // IF the user wants to include numbers
+    for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
+      //Randomly generate a number within the string & select its value                 //
+      let randomNumber = Math.floor(Math.random() * numberCharacters.length);           //
+      let numberCharacter = numberCharacters[randomNumber];                             // THEN a random number will be generated
+      generatedNumberPassword += numberCharacter;                                       // THEN the numbers will be combined into a string
     }
-  } else {
-    // do not generate numbers
-    generatedNumberPassword = null
+  } else {                                                                              // IF the user does not want to include numbers
+    generatedNumberPassword = null                                                      // THEN random numbers will not be generated
   }
 
-  var special = confirm("Do you want to include special characters?");
+  // The user will be asked if they want to include special characters
+  var special = confirm("Do you want to include special characters?");    
+  
+  // This creates the string for the generatedPassword below
   var generatedSpecialCharacterPassword = "";
-  if (special) {
-    // Generate special characters
-    for (i = 0; i < passwordLength; i++) {
-      let randomSpecialCharacter = Math.floor(Math.random() * specialCharacters.length);
-      let specialCharacter = specialCharacters[randomSpecialCharacter];
-      generatedSpecialCharacterPassword += specialCharacter;
+
+  if (special) {                                                                        // IF the user wants to include special characters
+    for (i = 0; i < passwordLength; i++) {                                              // FOR each character within their password length
+      //Randomly generate a number within the string & select its value                 //
+      let randomSpecialCharacter = Math.floor(Math.random() * specialCharacters.length);//
+      let specialCharacter = specialCharacters[randomSpecialCharacter];                 // THEN a random special character will be generated
+      generatedSpecialCharacterPassword += specialCharacter;                            // THEN the special characters will be combined into a string
     }
-  } else {
-    // do not generate special characters
-    generatedSpecialCharacterPassword = null
+  } else {                                                                              // IF the user does not want to include special characters
+    generatedSpecialCharacterPassword = null                                            // THEN random special characters will not be generated
   }
 
+  // Creates an array of all the values selected by the user
   var selectedCharacters = [generatedLowerCasePassword, generatedUpperCasePassword, generatedNumberPassword, generatedSpecialCharacterPassword];
+
+  // Joins all the values into a new string
   var combinedString = selectedCharacters.join("");
+
+  // Splits all the values into individual characters
   var charactersArray = combinedString.split("");
+
+  // This creates the string for the FINAL generatedPassword below
   let finalGeneratedPassword = "";
 
-  if (generatedLowerCasePassword === null && generatedUpperCasePassword === null && generatedNumberPassword === null && generatedSpecialCharacterPassword === null) {
-    alert("You didn't select any characters!")
-    writePassword();
-  } else {
-    // randomly merge the defined strings into one string of the number of characters the user defined
-    for (i=0; i < charactersArray.length; i++) {
-      let randomizeArray = Math.floor(Math.random() * charactersArray.length);
-      let randomizedArray = charactersArray[randomizeArray];
-      finalGeneratedPassword += randomizedArray;
-      finalGeneratedPassword = finalGeneratedPassword.slice(0, passwordLength);
+  if (generatedLowerCasePassword === null && generatedUpperCasePassword === null && generatedNumberPassword === null && generatedSpecialCharacterPassword === null) {   // IF the user did not select any characters
+    alert("You didn't select any characters!")                                                                                                                          // THEN they will be alerted that they didn't select any characters
+    writePassword();                                                                                                                                                    // THEN they will be prompted again
+  } else {                                                                                                      // IF the user did select any of the characters
+    for (i=0; i < charactersArray.length; i++) {                                                                // FOR each character in the combined charactersArray
+      //Randomly generate a number within the string & select its value                                         //
+      let randomizeArray = Math.floor(Math.random() * charactersArray.length);                                  //
+      let randomizedArray = charactersArray[randomizeArray];                                                    // THEN each value will be randomized once more
+      finalGeneratedPassword += randomizedArray;                                                                // THEN each value will be combined into a string
+      finalGeneratedPassword = finalGeneratedPassword.slice(0, passwordLength);                                 // THEN the selection is sliced to include only the number of characters that the user initially selected
     }
+    
+    // Inputs the final Generated Password into the Password Box
     passwordText.value = finalGeneratedPassword;
   }
 }
