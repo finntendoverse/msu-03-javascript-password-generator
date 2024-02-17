@@ -1,6 +1,9 @@
 // Selects "generate" button
 var generateBtn = document.querySelector("#generate");
 
+// Selects the text within the password box
+var passwordText = document.querySelector("#password");
+
 // Arrays of the different values that can be included in the password
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -22,9 +25,7 @@ function writePassword() {
   } else if (passwordLength < 8 || passwordLength > 128) {
     alert("Your password must be between 8 and 138 characters");
     writePassword();
-  } else {
-    alert("You selected "+ passwordLength);
-  }
+  } else {}
 
   var lowerCase = confirm("Do you want to include lowercase characters?");
   var generatedLowerCasePassword = "";                                                             // This creates the string for the generatedPassword below
@@ -35,7 +36,6 @@ function writePassword() {
       let lowerCaseCharacter = lowerCaseCharacters[randomLowerCase];
       generatedLowerCasePassword += lowerCaseCharacter;
     }
-    alert("your password is " + generatedLowerCasePassword);
   } else {
     // do not generate lowercase characters
     generatedLowerCasePassword = null;
@@ -50,7 +50,6 @@ function writePassword() {
       let upperCaseCharacter = upperCaseCharacters[randomUpperCase];
       generatedUpperCasePassword += upperCaseCharacter;
     }
-    alert("your password is " + generatedUpperCasePassword);
   } else {
     // do not generate uppercase characters
     generatedUpperCasePassword = null
@@ -65,7 +64,6 @@ function writePassword() {
       let numberCharacter = numberCharacters[randomNumber];
       generatedNumberPassword += numberCharacter;
     }
-    alert("your password is " + generatedNumberPassword);
   } else {
     // do not generate numbers
     generatedNumberPassword = null
@@ -80,7 +78,6 @@ function writePassword() {
       let specialCharacter = specialCharacters[randomSpecialCharacter];
       generatedSpecialCharacterPassword += specialCharacter;
     }
-    alert("your password is " + generatedSpecialCharacterPassword);
   } else {
     // do not generate special characters
     generatedSpecialCharacterPassword = null
@@ -89,7 +86,6 @@ function writePassword() {
   var selectedCharacters = [generatedLowerCasePassword, generatedUpperCasePassword, generatedNumberPassword, generatedSpecialCharacterPassword];
   var combinedString = selectedCharacters.join("");
   var charactersArray = combinedString.split("");
-  alert(charactersArray);
   let finalGeneratedPassword = "";
 
   if (generatedLowerCasePassword === null && generatedUpperCasePassword === null && generatedNumberPassword === null && generatedSpecialCharacterPassword === null) {
@@ -102,13 +98,9 @@ function writePassword() {
       let randomizedArray = charactersArray[randomizeArray];
       finalGeneratedPassword += randomizedArray;
     }
-    alert(finalGeneratedPassword);
+    passwordText.value = finalGeneratedPassword;
   }
 }
-
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
 
 // Runs writePassword function when "generate" button is clicked
 generateBtn.addEventListener("click", writePassword);
