@@ -26,9 +26,9 @@ WHEN the password is generated<br>
 THEN the password is either displayed in an alert or written to the page
 
 ## Deployed Application
-[Deployed Application Link]()
+[Deployed Application Link](https://finntendoverse.github.io/msu-03-javascript-password-generator/)
 
-![Deployed Application]()
+![Deployed Application](img/03-javascript-homework-demo.png)
 
 ## License
 MIT License

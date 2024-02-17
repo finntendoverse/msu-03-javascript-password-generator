@@ -16,7 +16,7 @@ function writePassword() {
 
   if (!passwordLength) {                                                                // IF the user clicks "cancel"
     alert("A password will not be created");                                            // THEN they will be alerted that a password will not be created
-    return;                                                                             // THEN the function will end
+    return;
   }
 
   if (isNaN(passwordLength)) {                                                          // IF the user types in something other than a number
@@ -25,6 +25,7 @@ function writePassword() {
   } else if (passwordLength < 8 || passwordLength > 128) {                              // IF the password is less than 8 characters or more than 128 characters
     alert("Your password must be between 8 and 138 characters");                        // THEN they will be alerted that their password falls outside of the accepted range
     writePassword();                                                                    // THEN they will be prompted again
+    return;
   } else {}
 
   // The user will be asked if they want to include lowercase characters
